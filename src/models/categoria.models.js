@@ -1,4 +1,4 @@
-import { conexão } from "../config/db";
+import { conexão } from "../config/db.js";
 
 export async function listarCategorias() {
     const [categoria] = await conexão.query(
