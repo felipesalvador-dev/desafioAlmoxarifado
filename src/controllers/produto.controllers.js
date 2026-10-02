@@ -15,20 +15,22 @@ export async function listarProdutosController(req, res) {
 
 export async function buscarProdutoPorIdController(req, res) {
     try {
-        const {id} = req.params;
+        const { id_produto } = req.params;
 
-        const produto = await buscarProdutoPorId(id);
+        const produto = await buscarProdutoPorId(id_produto);
 
-        if (!produto){
+        if (!produto) {
             return res.status(404).json({
                 mensagem: "Produto não encontrado"
             });
         }
-        
+
+        res.status(200).json(produto);
+
     } catch (error) {
         res.status(500).json({
             mensagem: "Erro ao buscar produto",
-            error: error.message
+            erro: error.message
         });
     }
 }

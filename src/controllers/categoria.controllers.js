@@ -15,20 +15,22 @@ export async function listarCategoriasController(req, res) {
 
 export async function buscarCategoriaPorIdController(req, res) {
     try {
-        const {id} = req.params;
+        const { id } = req.params;
 
         const categoria = await buscarCategoriaPorId(id);
 
-        if (!categoria){
+        if (!categoria) {
             return res.status(404).json({
                 mensagem: "Categoria não encontrada"
             });
         }
-        
+
+        res.status(200).json(categoria);
+
     } catch (error) {
         res.status(500).json({
             mensagem: "Erro ao buscar categoria",
-            error: error.message
+            erro: error.message
         });
     }
 }

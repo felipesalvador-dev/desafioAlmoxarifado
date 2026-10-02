@@ -14,7 +14,7 @@ export async function buscarCategoriaPorId(id_categoria) {
         [id_categoria]
     )
 
-    return categoria;
+    return categoria[0];
 };
 
 

@@ -8,7 +8,6 @@ import {
 const router = Router();
 
 router.get("/", listarCategoriasController);
-
 router.get("/:id", buscarCategoriaPorIdController);
 
 export default router;
